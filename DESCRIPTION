@@ -22,7 +22,11 @@ Imports:
     dplyr,
     ggplot2,
     scales,
+    R2WinBUGS,
+    rjags,
+    coda,
     R2jags,
+    RColorBrewer,
     choroplethr,
     choroplethrMaps,
     lubridate

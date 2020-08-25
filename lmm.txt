@@ -1,0 +1,36 @@
+
+      model{
+      #1A Diffuse priors for regression coefs
+      for (i in 1:K) {beta[i] ~ dnorm(0,0.0001)}
+      #1B Priors for random effects
+      for(i in 1:Nre){
+      a[i] ~ dnorm(0, tau.ri)
+      b[i] ~ dnorm(0, tau.rs)
+      }
+
+      #Priors for variances
+      num.ri ~ dnorm(0,0.0016)
+      num.rs ~ dnorm(0,0.0016)
+      num.eps ~ dnorm(0,0.0016)
+      denom.ri ~ dnorm(0,1)
+      denom.rs ~ dnorm(0,1)
+      denom.eps ~ dnorm(0,1)
+
+
+      sigma.ri<- abs(num.ri/denom.ri)
+      sigma.rs<- abs(num.rs/denom.rs)
+      sigma.eps<- abs(num.eps/denom.eps)
+      #sigma.eps ~ dunif(0.001,10)
+      tau.ri<- 1/(sigma.ri*sigma.ri)
+      tau.rs<- 1/(sigma.rs*sigma.rs)
+      tau.eps<- 1/(sigma.eps*sigma.eps)
+
+
+      #Likelihood
+      for(i in 1:N){
+      infected[i] ~ dnorm(mu[i], tau.eps)
+      mu[i]<- eta[i]
+      eta[i]<- inprod(beta[], X[i,]) + a[re[i]] + b[re[i]]*X[i,2]
+      }
+      }
+      

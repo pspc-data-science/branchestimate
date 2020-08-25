@@ -219,7 +219,7 @@ make_county_choro_data<- function(mcmc_object){
   mcmc_malthusian<- mcmc_object[[1]]
   covid_data<- mcmc_object[[2]]
 
-  gamma_pars<- find_gamma_parameters()
+  gamma_pars<- branchsim::find_gamma_parameters()
   a<- gamma_pars[1]
   b<- gamma_pars[2]
 
@@ -304,7 +304,7 @@ make_state_choro_data<- function(mcmc_object){
   mcmc_malthusian<- mcmc_object[[1]]
   covid_data<- mcmc_object[[2]]
 
-  gamma_pars<- find_gamma_parameters()
+  gamma_pars<- branchsim::find_gamma_parameters()
   a<- gamma_pars[1]
   b<- gamma_pars[2]
 
