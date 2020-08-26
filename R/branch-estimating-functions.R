@@ -400,15 +400,15 @@ make_state_map<- function(choro_data){
 #' @return A state level choropleth for R effective in those counties seeing an epidemic outbreak (R_eff>1).
 #'
 #' @export
-make_county_map<- function(choro_data, zoom = NA){
+make_county_map<- function(choro_data, zoom_state = NA){
 
     #col.pal<- (brewer.pal(7,"Set2"))
     col.pal<- (brewer.pal(7,"YlOrRd"))
 
     choro1<- CountyChoropleth$new(choro_data)
-    if (!is.na(zoom)) {
-        region_label <- str_to_title(zoom)
-        choro1$set_zoom(zoom)
+    if (!is.na(zoom_state) & zoom_state != "NA") {
+        region_label <- str_to_title(zoom_state)
+        choro1$set_zoom(zoom_state)
     } else {
         region_label <- "US"
     }
