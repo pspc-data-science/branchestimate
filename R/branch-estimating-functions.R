@@ -395,20 +395,26 @@ make_state_map<- function(choro_data){
 #' This function creates a county choropleth depending on the output of make_county_choro_data().
 #'
 #' @param choro_data The tibble provided by make_county_choro_data().
+#' @param zoom The state to zoom on. If NA, show the entire US.
 #'
 #' @return A state level choropleth for R effective in those counties seeing an epidemic outbreak (R_eff>1).
 #'
 #' @export
-make_county_map<- function(choro_data){
+make_county_map<- function(choro_data, zoom = NA){
 
-  #col.pal<- (brewer.pal(7,"Set2"))
-  col.pal<- (brewer.pal(7,"YlOrRd"))
+    #col.pal<- (brewer.pal(7,"Set2"))
+    col.pal<- (brewer.pal(7,"YlOrRd"))
 
-  choro1<- CountyChoropleth$new(choro_data)
+    choro1<- CountyChoropleth$new(choro_data)
+    if (!is.na(zoom)) {
+        region_label <- str_to_title(zoom)
+        choro1$set_zoom(zoom)
+    } else {
+        region_label <- "US"
+    }
   choro1$ggplot_scale <- scale_fill_manual(name="R effective\n(NA: sub-exponential growth)",values=col.pal, drop=FALSE)
   choro1$add_state_outline<- TRUE
-  choro1$render() + ggtitle("US counties with R effective > 1") +
+  choro1$render() + ggtitle(str_c(region_label, " counties with R effective > 1")) +
     theme(plot.title = element_text(hjust = 0.5)) + theme(text = element_text(size=15))
 
 }
-
