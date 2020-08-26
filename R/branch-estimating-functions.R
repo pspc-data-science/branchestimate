@@ -259,12 +259,12 @@ make_county_choro_data<- function(mcmc_object){
                       fips = as.character(c(36061, 36081, 36005, 36047, 36085)))
     county_fips_id_sim<- county_fips_id_sim %>% bind_rows(nyc_fips)
   }
-  data("df_pop_county")
+  #data("df_pop_county")
 
   posterior_choro_data<- left_join(posterior_id_sim_means,county_fips_id_sim, by = "id_sim") %>%
     setNames(c("id_sim", "value", "lower", "upper", "county_name", "region"))
 
-  county_population<- df_pop_county %>% as_tibble() %>% setNames(c("region", "population"))
+  county_population<- branchestimate::df_pop_county %>% as_tibble() %>% setNames(c("region", "population"))
   posterior_choro_data$region<- as.numeric(posterior_choro_data$region)
 
   posterior_choro_data<- left_join(county_population,posterior_choro_data, by = "region")
@@ -338,11 +338,11 @@ make_state_choro_data<- function(mcmc_object){
   posterior_choro_data<- left_join(posterior_id_sim_means,states_id_sim, by = "id_sim") %>%
     setNames(c("id_sim", "value", "lower", "upper", "region")) %>% mutate(region = tolower(region))
 
-  data("df_pop_state")
+  #data("df_pop_state")
 
 
 
-  state_population<- df_pop_state %>% as_tibble() %>% setNames(c("region", "population"))
+  state_population<- branchestimate::df_pop_state %>% as_tibble() %>% setNames(c("region", "population"))
 
 
   posterior_choro_data<- left_join(state_population,posterior_choro_data, by = "region")

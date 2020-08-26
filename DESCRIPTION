@@ -29,4 +29,7 @@ Imports:
     RColorBrewer,
     choroplethr,
     choroplethrMaps,
+    branchsim,
     lubridate
+Depends: 
+    R (>= 2.10)
