@@ -382,9 +382,10 @@ make_state_map<- function(choro_data){
   col.pal<- (brewer.pal(7,"YlOrRd"))
 
   choro1<- StateChoropleth$new(choro_data)
-  choro1$ggplot_scale <- scale_fill_manual(name="R effective",values=col.pal, drop=FALSE)
+  choro1$ggplot_scale <- scale_fill_manual(name="R effective\n(NA: sub-exponential growth)",values=col.pal, drop=FALSE)
   choro1$add_state_outline<- TRUE
-  choro1$render()
+  choro1$render() + ggtitle("US counties with R effective > 1") +
+    theme(plot.title = element_text(hjust = 0.5)) + theme(text = element_text(size=15))
 
 }
 
@@ -404,7 +405,7 @@ make_county_map<- function(choro_data){
   col.pal<- (brewer.pal(7,"YlOrRd"))
 
   choro1<- CountyChoropleth$new(choro_data)
-  choro1$ggplot_scale <- scale_fill_manual(name="R effective\n(NA indicates sub-exponential growth)",values=col.pal, drop=FALSE)
+  choro1$ggplot_scale <- scale_fill_manual(name="R effective\n(NA: sub-exponential growth)",values=col.pal, drop=FALSE)
   choro1$add_state_outline<- TRUE
   choro1$render() + ggtitle("US counties with R effective > 1") +
     theme(plot.title = element_text(hjust = 0.5)) + theme(text = element_text(size=15))
