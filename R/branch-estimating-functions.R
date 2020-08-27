@@ -412,9 +412,9 @@ make_county_map<- function(choro_data, zoom_state = NA){
     } else {
         region_label <- "US"
     }
-  choro1$ggplot_scale <- scale_fill_manual(name="R effective\n(NA: sub-exponential growth)",values=col.pal, drop=FALSE)
+  choro1$ggplot_scale <- scale_fill_manual(name="R effective\n(NA: sub-exp growth)",values=col.pal, drop=FALSE)
   choro1$add_state_outline<- TRUE
-  choro1$render() + ggtitle(str_c(region_label, " counties with R effective > 1")) +
+  choro1$render() + ggtitle(str_c(region_label, " counties with R effective > 1\n2020-07-01 to 2020-08-20")) +
     theme(plot.title = element_text(hjust = 0.5)) + theme(text = element_text(size=15))
 
 }
