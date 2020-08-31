@@ -2,7 +2,7 @@
 % Please edit documentation in R/branch-estimating-functions.R
 \name{run_jag_estimator}
 \alias{run_jag_estimator}
-\title{A JAGS wrapper for Malthusian parameter estimation based on a reginal random effect.}
+\title{A JAGS wrapper for Malthusian parameter estimation based on a regional random effect.}
 \usage{
 run_jag_estimator(master_data_2)
 }

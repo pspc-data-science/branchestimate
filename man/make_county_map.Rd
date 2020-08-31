@@ -4,10 +4,12 @@
 \alias{make_county_map}
 \title{Renders a county choropleth for R effective.}
 \usage{
-make_county_map(choro_data)
+make_county_map(choro_data, zoom_state = NA)
 }
 \arguments{
 \item{choro_data}{The tibble provided by make_county_choro_data().}
+
+\item{zoom}{The state to zoom on. If NA, show the entire US.}
 }
 \value{
 A state level choropleth for R effective in those counties seeing an epidemic outbreak (R_eff>1).

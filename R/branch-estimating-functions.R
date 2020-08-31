@@ -106,7 +106,7 @@ US_covid_data_creator<- function(date_start = "2020-05-01" , date_end = "2020-08
 
 
 
-#' A JAGS wrapper for Malthusian parameter estimation based on a reginal random effect.
+#' A JAGS wrapper for Malthusian parameter estimation based on a regional random effect.
 #'
 #' This function creates the MCMC posterior output of JAGS running on the US regional COVID-19 data.
 #' The output is based on a linear mixed model of the log transformed count data providing both the fixed effects
