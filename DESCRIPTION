@@ -1,6 +1,6 @@
 Package: branchestimate
-Title: Malthusian parameter and R effective estimator for US regional COVID-19 data
-Version: 0.0.0.9000
+Title: Malthusian parameter and R effective estimator for US regional COVID-19 data based on a Gamma Negative Binomial Branching Process 
+Version: 0.1.0
 Authors@R: 
     c(person(given = "Jérôme",
              family = "Levesque",
@@ -10,8 +10,8 @@ Authors@R:
       	     family = "Maybury",
 	     role = c("aut"),
 	     email = "david.maybury@tpsgc-pwgsc.gc.ca"))
-Description: Estimates the Malthusian parameters and R effective in regional US data for those regions experiencing epidemic COVID-19 growth.
-License: `use_mit_license()`
+Description: Using the Gamma Negative Binomial Branching Process of branchsim, this package estimates the Malthusian parameters and R effective in regional US data for those regions experiencing epidemic COVID-19 growth.
+License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

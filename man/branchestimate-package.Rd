@@ -4,9 +4,9 @@
 \name{branchestimate-package}
 \alias{branchestimate}
 \alias{branchestimate-package}
-\title{branchestimate: Malthusian parameter and R effective estimator for US regional COVID-19 data}
+\title{branchestimate: Malthusian parameter and R effective estimator for US regional COVID-19 data based on a Gamma Negative Binomial Branching Process}
 \description{
-Estimates the Malthusian parameters and R effective in regional US data for those regions experiencing epidemic COVID-19 growth.
+Using the Gamma Negative Binomial Branching Process of branchsim, this package estimates the Malthusian parameters and R effective in regional US data for those regions experiencing epidemic COVID-19 growth.
 }
 \author{
 \strong{Maintainer}: Jérôme Levesque \email{jerome.levesque@tpsgc-pwgsc.gc.ca}
